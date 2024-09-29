@@ -1,0 +1,168 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: Poppins;
+    color: #1E1E1E;
+    background-color: #CDCDCD;
+    background-image:
+        repeating-linear-gradient(
+            to right, transparent 0 150px, #0001 150px 151px
+        ),
+        repeating-linear-gradient(
+            to bottom, transparent 0 150px, #0001 150px 151px
+        ),
+        linear-gradient(to right, #CDCDCDcc, #CDCDCDcc),
+        url(./images/bg.jpg);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: min(1200px, 90vw);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0; /* Adjusted from 50px to 0 */
+    height: 0;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-family: "Karantina", system-ui;
+    font-size: 16vw;
+    line-height: 0.8em;
+}
+
+header .author {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+header h3 {
+    font-family: "Karantina", system-ui;
+    font-size: 5vw;
+}
+
+header .author div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .author div p:nth-child(2) {
+    font-weight: 500;
+}
+
+header .author img {
+    width: 250px;
+}
+
+.banner {
+    margin-top: -50px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.product {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 170px;
+    z-index: 2;
+    width: 500px;
+    transition: none; /* Disable animation */
+}
+
+.product .soda {
+    position: static; /* Remove absolute positioning */
+    margin: 0 auto; /* Center it */
+}
+
+.soda {
+    background: 
+        var(--url) var(--left),
+        url(./images/mockup.png) 0 0;
+    background-size: auto 100%;
+    width: 280px;
+    aspect-ratio: 2 / 4;
+    background-blend-mode: multiply;
+    transition: none; /* Disable animation */
+    mask-image: url(./images/mockup.png);
+    mask-size: auto 100%;
+}
+
+/* Remove hover effects */
+.product:hover {
+    bottom: 170px; /* Ensure it stays at the original position */
+}
+
+/* Additional styles for rocks */
+.rock {
+    position: absolute;
+    inset: 0 0 0 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.rock img:nth-child(1) {
+    position: absolute;
+    height: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    z-index: 1;
+}
+
+.rock img:nth-child(2) {
+    position: absolute;
+    height: 50%;
+    left: 0;
+    bottom: 0;
+}
+
+.rock img:nth-child(3) {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    bottom: -100px;
+    rotate: -25deg;
+}
+
+@media screen and (max-width: 1023px) {
+    .soda {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .soda {
+        width: 250px;
+    }
+    header img {
+        display: none;
+    }
+    header .author {
+        width: 100%;
+    }
+}
+.gif-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Required for positioning children */
+    z-index: 1; /* Keep it above other elements */
+}
+
+.gif-container img {
+    max-width: 100%; /* Make sure it fits within the container */
+    height: auto; /* Maintain aspect ratio */
+    position:relative;
+    left: -100px;
+}
